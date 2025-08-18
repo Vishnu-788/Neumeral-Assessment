@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
 
 
 class RegisterView(APIView):
@@ -39,3 +40,16 @@ class ProfileView(APIView):
         print("User:", request.user)
         print("Is Authenticated:", request.user.is_authenticated)
         return Response({"username": request.user.username})
+    
+
+class LogoutView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user = request.user
+        
+        # Delete the token
+        Token.objects.filter(user=user).delete()
+        
+        return Response({"detail": "Successfully logged out."}, status=status.HTTP_200_OK)
+
