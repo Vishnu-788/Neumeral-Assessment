@@ -10,17 +10,19 @@ import {
 } from "react-bootstrap";
 import { API_ENDPOINTS } from "../utils/api";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuthContext";
 
 function SignIn() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password) {
+    if (!username || !password) {
       setError("Please fill in all fields");
       return;
     }
@@ -32,7 +34,7 @@ function SignIn() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }),
+          body: JSON.stringify({ username, password }),
         });
 
         if (!response.ok) {
@@ -40,7 +42,8 @@ function SignIn() {
           setError(errorData.detail || "Sign In failed");
           return;
         }
-
+        const res = await response.json();
+        login(res.token);
         navigate("/");
       } catch (err) {
         setError("An error occurred while signing in. Please try again.");
@@ -58,13 +61,13 @@ function SignIn() {
             <h3 className="text-center mb-3">Sign In</h3>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email address</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label>Username</Form.Label>
                 <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Enter username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </Form.Group>
