@@ -7,4 +7,5 @@ export const API_ENDPOINTS = {
   PROFILE: `${BASE_URL}/user/profile/`,
   BOOK_APPOINTMENT: `${BASE_URL}/appointment/create/`,
   GET_APPOINTMENTS: `${BASE_URL}/appointment/`,
+  GET_DOCTORS: `${BASE_URL}/doctor/`,
 };

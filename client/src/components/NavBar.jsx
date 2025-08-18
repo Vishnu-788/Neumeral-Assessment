@@ -29,7 +29,7 @@ function NavBar() {
       <Container className="d-flex justify-content-between align-items-center">
         {/* Brand Part */}
         <Navbar.Brand as={Link} to="/">
-          MyBrand
+          MyClinic
         </Navbar.Brand>
 
         {/* Buttons Part */}
