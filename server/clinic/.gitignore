@@ -1,46 +1,10 @@
-# Python
-*.pyc
-*.pyo
-*.pyd
+# Byte-compiled / cache files
 __pycache__/
-*.so
-*.egg
-*.egg-info/
-dist/
-build/
-*.manifest
-*.spec
+*.py[cod]
 
-# Django stuff
-db.sqlite3
-*.log
-*.pot
-*.pyc
-media/
-staticfiles/
+# Virtual environments
+.myenv/
 
-# Environments
-.env
-.env.*
-venv/
-venv*/
-ENV/
-.venv/
-.envrc
 
-# IDE/editor files
-.vscode/
-.idea/
-*.swp
-.DS_Store
-
-# Testing / Coverage
-.coverage
-htmlcov/
-.tox/
-.pytest_cache/
-.mypy_cache/
-
-# System files
-Thumbs.db
+# SQLite database files
 db.sqlite3
