@@ -43,3 +43,4 @@ htmlcov/
 
 # System files
 Thumbs.db
+db.sqlite3
