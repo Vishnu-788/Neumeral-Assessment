@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
 
 # Doctor model
 class Doctor(models.Model):
@@ -18,22 +21,22 @@ class Slot(models.Model):
 
 
 
-# # Leave model
-# class Leave(models.Model):
-#     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='leaves')
-#     slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
-#     date = models.DateField()
+# Leave model
+class Leave(models.Model):
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='leaves')
+    slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
+    date = models.DateField()
 
-#     def __str__(self):
-#         return f"{self.doctor.name} - {self.slot} on {self.date}"
+    def __str__(self):
+        return f"{self.doctor.name} - {self.slot} on {self.date}"
 
 # Appointment model
 class Appointment(models.Model):
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='appointments')
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
     date = models.DateField()
-    patient_name = models.CharField(max_length=50)
-    age = models.IntegerField(null=False, blank=False)
+    patient = models.ForeignKey(User, on_delete=models.CASCADE)  # <- correct
+    age = models.IntegerField()
 
     def __str__(self):
-        return f"{self.patient_name} with {self.doctor.name} at {self.slot} on {self.date}"
+        return f"{self.patient} with {self.doctor.name} at {self.slot} on {self.date}"
