@@ -19,3 +19,5 @@ class CreateAppoitmentView(CreateAPIView):
     permission_classes=[IsAuthenticated]
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
+
+
