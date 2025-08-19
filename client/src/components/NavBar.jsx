@@ -44,6 +44,14 @@ function NavBar() {
               >
                 Profile
               </Button>
+              <Button
+                as={Link}
+                to="/appointments"
+                variant="outline-light"
+                className="me-2"
+              >
+                Appoinments
+              </Button>
               <Button onClick={logoutUser} variant="light">
                 Sign Out
               </Button>

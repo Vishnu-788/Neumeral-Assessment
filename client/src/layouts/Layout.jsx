@@ -1,4 +1,4 @@
-import { Container, Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
