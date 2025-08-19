@@ -2,9 +2,28 @@
 __pycache__/
 *.py[cod]
 
+# Python bytecode
+*.pyc
+
 # Virtual environments
 .myenv/
 
-
-# SQLite database files
+# SQLite database
 db.sqlite3
+
+# IDE/editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Django migrations (optional: track only real migrations)
+# */migrations/*.py[cod]
+# */migrations/__pycache__/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+T
