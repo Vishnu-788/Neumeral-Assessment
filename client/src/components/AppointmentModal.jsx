@@ -57,7 +57,7 @@ function AppointmentModal({ show, handleClose, doctor }) {
         console.error(errorData);
         setMessage({
           type: "error",
-          text: errorData.detail || "Booking failed",
+          text: errorData.errors?.message || "Booking failed",
         });
         return; // Don't close the modal
       }
