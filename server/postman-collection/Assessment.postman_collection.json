@@ -58,6 +58,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"vishnu\",\n  \"password\": \"secret123\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/user/logout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
