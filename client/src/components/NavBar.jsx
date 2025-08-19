@@ -66,8 +66,8 @@ function NavBar() {
               >
                 Sign In
               </Button>
-              <Button as={Link} to="/register" variant="light">
-                Register
+              <Button as={Link} to="/signup" variant="light">
+                Sign Up
               </Button>
             </>
           )}
