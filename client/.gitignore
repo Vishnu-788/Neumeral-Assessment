@@ -25,7 +25,7 @@ dist-ssr
 
 
 # Vite cache/deps
-client/.vite/
+.vite/
 
 # Node modules
 node_modules/

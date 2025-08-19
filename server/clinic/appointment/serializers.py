@@ -7,9 +7,11 @@ from doctor.models import Leave
 class AppointmentSerializer(serializers.ModelSerializer):
     patient = serializers.HiddenField(default=serializers.CurrentUserDefault())
     patient_name = serializers.CharField(source='patient.username', read_only=True)
+    doctor_name = serializers.CharField(source='doctor.name', read_only=True)
+    slot_booked = serializers.CharField(source="slot.time_range", read_only=True)
     class Meta:
         model = Appointment
-        fields = ['doctor', 'slot', 'date', 'age', 'patient', 'patient_name']
+        fields = ['doctor', 'doctor_name', 'slot', 'slot_booked', 'date', 'age', 'patient', 'patient_name']
 
     def validate(self, data):
         doctor = data['doctor']
