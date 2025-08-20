@@ -38,10 +38,17 @@ function SignIn() {
         });
 
         if (!response.ok) {
-          errorData = await response.json();
-          setError(errorData.detail || "Sign In failed");
+          let errorData;
+          try {
+            errorData = await response.json();
+          } catch {
+            errorData = { error: "Sign In failed" };
+          }
+          setError(errorData.error || "Sign In failed");
+          console.error("Sign In Error:", errorData);
           return;
         }
+
         const res = await response.json();
         login(res.token);
         navigate("/");

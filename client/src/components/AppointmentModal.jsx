@@ -12,9 +12,10 @@ function AppointmentModal({ show, handleClose, doctor }) {
   const { token } = useAuth();
 
   const slots = [
-    { id: 1, time: "09:00 AM" },
-    { id: 2, time: "10:00 AM" },
-    { id: 3, time: "11:00 AM" },
+    { id: 1, time: "10:00 AM – 11:30 AM" },
+    { id: 2, time: "12:00 PM – 01:00 PM" },
+    { id: 3, time: "03:00 PM – 04:30 PM" },
+    { id: 4, time: "07:00 PM – 08:00 PM" },
   ];
 
   // Reset form when modal closes
