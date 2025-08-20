@@ -60,7 +60,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Logout",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -107,7 +107,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"doctor\": 1,\n  \"slot\": 2,\n  \"date\": \"2025-08-20\",\n  \"patient_name\": \"John Doe\",\n  \"age\": 10\n}\n",
+							"raw": "{\n  \"doctor\": 1,\n  \"slot\": 1,\n  \"date\": \"2025-08-23\",\n  \"age\": 10\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -115,7 +115,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/v1/doctor/appointment/",
+							"raw": "http://127.0.0.1:8000/api/v1/appointment/create/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -127,8 +127,8 @@
 							"path": [
 								"api",
 								"v1",
-								"doctor",
 								"appointment",
+								"create",
 								""
 							]
 						}
